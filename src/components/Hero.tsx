@@ -1,10 +1,17 @@
 // src/components/Hero.tsx
-// Este componente no necesita "use client" ya que no usa hooks de estado o efectos
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Link from 'next/link';
 
-const Hero = ({ setShowRegister }) => {
+// 1. Define una interfaz o un tipo para las props.
+// Esto mejora la legibilidad y la reutilización.
+interface HeroProps {
+  setShowRegister: (show: boolean) => void;
+}
+
+// 2. Asigna el tipo a las props en la declaración del componente.
+// Ahora, TypeScript sabe que 'setShowRegister' es una función.
+const Hero = ({ setShowRegister }: HeroProps) => {
   return (
     <Container fluid className="bg-light text-dark text-center py-5" style={{ paddingTop: '100px' }}>
       <Row className="justify-content-center align-items-center" style={{ minHeight: '70vh' }}>
